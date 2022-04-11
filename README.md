@@ -2,4 +2,4 @@
 ## Deep Learning Hands on materials
 
 ### 국토연구원 | 국토데이터랩 | 장요한 부연구위원 (팀장)
-### ycanns@krihs.re.kr | ycanns@gmail.com | github.com/ycanns
+### ycanns@krihs.re.kr | ycanns@gmail.com | https://github.com/ycanns
