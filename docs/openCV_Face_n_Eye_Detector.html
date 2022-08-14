@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>openCV_testing</title>
+<title>openCV_Face_n_Eye_Detector</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13121,7 +13121,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot; </span>
@@ -13130,6 +13130,7 @@ div#notebook {
 <span class="sd">matplotlib - 그래프 그리기</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1"># 필요한 함수 불러오기</span>
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># 복잡한 산술계산</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># 그래프 그리기</span>
@@ -13149,9 +13150,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 필요한 파일 업로드 기능 (구글 코랩) &gt;&gt; 본 예제에서는 활용하지 않음</span>
-<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
-<span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 깃허브에 있는 파일 가져오기</span>
+<span class="c1">#!pip install wget</span>
+
+<span class="o">!</span>wget https://github.com/ycanns/DeepLearning_Class_NRC/tree/master/data/haarcascade_eye.xml -O haarcascade_eye.xml
+<span class="o">!</span>wget https://github.com/ycanns/DeepLearning_Class_NRC/tree/master/data/haarcascade_frontalface_default.xml -O haarcascade_frontalface_default.xml
 </pre></div>
 
     </div>
@@ -13167,28 +13170,37 @@ div#notebook {
     <div class="prompt"></div>
 
 
-
-<div class="output_html rendered_html output_subarea ">
-
-     <input type="file" id="files-637b4548-cc02-4aaa-8b37-20fcf9cecb00" name="files[]" multiple disabled
-        style="border:none" />
-     <output id="result-637b4548-cc02-4aaa-8b37-20fcf9cecb00">
-      Upload widget is only available when the cell has been executed in the
-      current browser session. Please rerun this cell to enable.
-      </output>
-      <script src="/nbextensions/google.colab/files.js"></script> 
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Saving haarcascade_eye.xml to haarcascade_eye (1).xml
-Saving haarcascade_frontalface_default.xml to haarcascade_frontalface_default (1).xml
+<pre>--2022-08-14 05:18:41--  https://github.com/ycanns/DeepLearning_Class_NRC/tree/master/data/haarcascade_eye.xml
+Resolving github.com (github.com)... 20.27.177.113
+Connecting to github.com (github.com)|20.27.177.113|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://github.com/ycanns/DeepLearning_Class_NRC/blob/master/data/haarcascade_eye.xml [following]
+--2022-08-14 05:18:42--  https://github.com/ycanns/DeepLearning_Class_NRC/blob/master/data/haarcascade_eye.xml
+Reusing existing connection to github.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘haarcascade_eye.xml’
+
+haarcascade_eye.xml     [   &lt;=&gt;              ]   4.89M  11.9MB/s    in 0.4s    
+
+2022-08-14 05:18:44 (11.9 MB/s) - ‘haarcascade_eye.xml’ saved [5129408]
+
+--2022-08-14 05:18:44--  https://github.com/ycanns/DeepLearning_Class_NRC/tree/master/data/haarcascade_frontalface_default.xml
+Resolving github.com (github.com)... 20.27.177.113
+Connecting to github.com (github.com)|20.27.177.113|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://github.com/ycanns/DeepLearning_Class_NRC/blob/master/data/haarcascade_frontalface_default.xml [following]
+--2022-08-14 05:18:45--  https://github.com/ycanns/DeepLearning_Class_NRC/blob/master/data/haarcascade_frontalface_default.xml
+Reusing existing connection to github.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘haarcascade_frontalface_default.xml’
+
+haarcascade_frontal     [ &lt;=&gt;                ] 135.09K   856KB/s    in 0.2s    
+
+2022-08-14 05:18:45 (856 KB/s) - ‘haarcascade_frontalface_default.xml’ saved [138334]
+
 </pre>
 </div>
 </div>
@@ -13199,7 +13211,22 @@ Saving haarcascade_frontalface_default.xml to haarcascade_frontalface_default (1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 필요한 파일 업로드 기능 (구글 코랩) &gt;&gt; 본 예제에서는 활용하지 않음</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 필요한 파일 업로드 기능</span>
@@ -13233,13 +13260,13 @@ Saving haarcascade_frontalface_default.xml to haarcascade_frontalface_default (1
 
  
  
-<div id="213f7f3c-a880-4e28-93f0-228088c1403f"></div>
+<div id="c30af9bc-1bb7-4815-818b-4d061e0e14b0"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#213f7f3c-a880-4e28-93f0-228088c1403f');
+var element = $('#c30af9bc-1bb7-4815-818b-4d061e0e14b0');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "588740fb98754594986cd99e98f36b2a", "version_major": 2, "version_minor": 0}
+{"model_id": "892f7fef51ca4d619298dc92af1caf16", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -13266,7 +13293,7 @@ var element = $('#213f7f3c-a880-4e28-93f0-228088c1403f');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Haar cascade 안면인식 파일과 눈동자인식 파일을 업로드된 데이터로부터 불러오기</span>
@@ -13326,7 +13353,7 @@ var element = $('#213f7f3c-a880-4e28-93f0-228088c1403f');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 영상 캡처 객체 초기화</span>
@@ -13392,7 +13419,7 @@ var element = $('#213f7f3c-a880-4e28-93f0-228088c1403f');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 영상 캡처 객체 초기화</span>
@@ -13477,7 +13504,7 @@ var element = $('#213f7f3c-a880-4e28-93f0-228088c1403f');
  
 
 <script type="application/vnd.jupyter.widget-state+json">
-{"b17b08b550a243fabe60cc5efeff66af": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ccf83b61604043e08377db911694f7d5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ButtonStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "f2db3a240c1f4e4ab5e24b47b3de6f75": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FileUploadModel", "state": {"_counter": 2, "_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FileUploadModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FileUploadView", "accept": ".xml", "button_style": "", "data": [null, null], "description": "Upload", "description_tooltip": null, "disabled": false, "error": "", "icon": "upload", "layout": "IPY_MODEL_b17b08b550a243fabe60cc5efeff66af", "metadata": [{"lastModified": 1646818697701, "name": "haarcascade_eye.xml", "size": 521764, "type": "text/xml"}, {"lastModified": 1646818494991, "name": "haarcascade_frontalface_default.xml", "size": 1290443, "type": "text/xml"}], "multiple": true, "style": "IPY_MODEL_ccf83b61604043e08377db911694f7d5"}}}
+{"a30581071d5e41f3b68752ed09e41964": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e8b37b2d44e7442d8ceed6d0a597ebf7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FileUploadModel", "state": {"_counter": 0, "_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FileUploadModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FileUploadView", "accept": ".xml", "button_style": "", "data": [], "description": "Upload", "description_tooltip": null, "disabled": false, "error": "", "icon": "upload", "layout": "IPY_MODEL_a30581071d5e41f3b68752ed09e41964", "metadata": [], "multiple": true, "style": "IPY_MODEL_f70121fa05a3434181d2524d3d162480"}}, "f70121fa05a3434181d2524d3d162480": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ButtonStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}}
 </script>
 
 
