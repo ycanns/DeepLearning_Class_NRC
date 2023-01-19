@@ -112,7 +112,7 @@
   </tr>
   <tr>
     <td>텍스트 마이닝을 통한 감성분석: IMDb 영화리뷰</td>
-    <td><a href="https://ycanns.github.io/ DeepLearning_Class_NRC/Emotional_Analysis_with_ML..html">https://ycanns.github.io/ DeepLearning_Class_NRC/Emotional_Analysis_with_ML..html</a></td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Emotional_Analysis_with_ML.html">https://ycanns.github.io/ DeepLearning_Class_NRC/Emotional_Analysis_with_ML.html</a></td>
   </tr>
 </table>
 
