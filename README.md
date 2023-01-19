@@ -104,11 +104,11 @@
   </tr>
   <tr>
     <td>비지도 학습 구현: 클러스터링 PCA</td>
-    <td><a href="https://ycanns.github.io/ DeepLearning_Class_NRC /PCA_sample.html">https://ycanns.github.io/DeepLearning_Class_NRC/PCA_sample.html</a></td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/PCA_sample.html">https://ycanns.github.io/DeepLearning_Class_NRC/PCA_sample.html</a></td>
   </tr>
   <tr>
     <td>텍스트 마이닝을 통한 감성분석: 네이버 영화리뷰</td>
-    <td><a href="https://ycanns.github.io/ DeepLearning_Class_NRC/Naver_movie_review.html">https://ycanns.github.io/DeepLearning_Class_NRC/Naver_movie_review.html</a></td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Naver_movie_review.html">https://ycanns.github.io/DeepLearning_Class_NRC/Naver_movie_review.html</a></td>
   </tr>
   <tr>
     <td>텍스트 마이닝을 통한 감성분석: IMDb 영화리뷰</td>
