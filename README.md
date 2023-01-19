@@ -96,7 +96,7 @@
   </tr>
   <tr>
     <td>GAN 모델을 이용한 모조 데이터 생성</td>
-    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/mnist_GAN_model.htm">https://ycanns.github.io/DeepLearning_Class_NRC/mnist_GAN_model.htm</a></td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/mnist_GAN_model.htm">https://ycanns.github.io/DeepLearning_Class_NRC/mnist_GAN_model.html</a></td>
   </tr>
   <tr>
     <td>비지도 학습 구현: 클러스터링 DBSCAN & K-means</td>
