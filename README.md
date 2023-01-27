@@ -194,6 +194,10 @@
     <td><a href="https://github.com/ycanns/DeepLearning_Class_NRC/tree/master/data">https://github.com/ycanns/DeepLearning_Class_NRC/tree/master/data</a></td>
   </tr>
   <tr>
+    <td>데이터일반화 및 전처리 샘플</td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Normalization_sample.html">https://ycanns.github.io/DeepLearning_Class_NRC/Normalization_sample.html</a></td>
+  </tr>
+    <tr>
     <td>숫자인식 및 예측을 위한 랜덤포레스트 예제</td>
     <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Random_Forest.html">https://ycanns.github.io/DeepLearning_Class_NRC/Random_Forest.html</a></td>
   </tr>
