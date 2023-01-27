@@ -201,6 +201,10 @@
     <td>숫자인식 및 예측을 위한 랜덤포레스트 예제</td>
     <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Random_Forest.html">https://ycanns.github.io/DeepLearning_Class_NRC/Random_Forest.html</a></td>
   </tr>
+    <tr>
+    <td>BOSTON 데이터를 이용한 랜덤포레스트 예제 (R)</td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Run_randomforest_with_R.html">https://ycanns.github.io/DeepLearning_Class_NRC/Run_randomforest_with_R.html</a></td>
+  </tr>
   <tr>
     <td>K-means Clustering & t-SNE</td>
     <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/tsne_example.html">https://ycanns.github.io/DeepLearning_Class_NRC/tsne_example.html</a></td>
