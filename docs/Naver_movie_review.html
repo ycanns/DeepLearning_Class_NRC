@@ -15511,18 +15511,24 @@ ratings_test.txt    100%[===================&gt;]   4.67M  --.-KB/s    in 0.09s
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 파라메터 최적화를 위한 분류기법 등의 모듈 불러오기</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">RandomizedSearchCV</span> 
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">SGDClassifier</span> <span class="c1"># Stochastic Gradient Descent (SGD)</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils.fixes</span> <span class="k">import</span> <span class="n">loguniform</span>
+<span class="kn">from</span> <span class="c1">sklearn.linear_model import SGDClassifier # Stochastic Gradient Descent (SGD)</span>
+<span class="kn">from</span> <span class="nn">linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span> 
+<span class="kn">from</span> <span class="c1">sklearn.utils.fixes import loguniform</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">loguniform</span>
 
 
 
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="c1"># 시작 시간 측정</span>
 
 <span class="c1">#- 만약, 가용한 CPU 코어의 여유가 있다면 n_jobs (병렬 처리 할 때 사용되는 CPU 코어 수)를 추가하여 설정</span>
-<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
-<span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">loguniform</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)}</span> <span class="c1"># alpha : 값이 클수록 강력한 정규화(규제) 설정</span>
+<span class="c1">sgd = SGDClassifier(loss=&#39;log&#39;,random_state=1) </span>
+<span class="c1">param_dist={&#39;alpha&#39;:loguniform(0.0001,100.0)} # alpha : 값이 클수록 강력한 정규화(규제) 설정</span>
 
-<span class="n">rsv_okt</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span>
+
+<span class="n">logreg</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p"></span>)
+<span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">loguniform</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">)}</span> <span class="c1"># C : 값이 클수록 강력한 정규화(규제) 설정</span>
+
+<span class="n">rsv_okt</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">logreg </span><span class="p">,</span>
                              <span class="n">param_distributions</span><span class="o">=</span><span class="n">param_dist</span><span class="p">,</span>
                              <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
                              <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
