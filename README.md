@@ -206,6 +206,10 @@
     <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Random_Forest.html">https://ycanns.github.io/DeepLearning_Class_NRC/Random_Forest.html</a></td>
   </tr>
     <tr>
+    <td>BOSTON 데이터를 이용한 랜덤포레스트 예제 (Python 수정)</td>
+    <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/RandomForest_Boston_Data.html">https://ycanns.github.io/DeepLearning_Class_NRC/RandomForest_Boston_Data.html</a></td>
+  </tr>
+    <tr>
     <td>BOSTON 데이터를 이용한 랜덤포레스트 예제 (R)</td>
     <td><a href="https://ycanns.github.io/DeepLearning_Class_NRC/Run_randomforest_with_R.html">https://ycanns.github.io/DeepLearning_Class_NRC/Run_randomforest_with_R.html</a></td>
   </tr>
