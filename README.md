@@ -146,6 +146,10 @@
     <td>p.47</td>
   </tr>
   <tr>
+    <td><a href="https://ml-playground.com">머신러닝 등 비교 Playground</a></td>
+    <td>p.47</td>
+  </tr>
+  <tr>
     <td><a href="https://distill.pub/2016/misread-tsne/">t-SNE</a></td>
     <td>p.81</td>
   </tr>
